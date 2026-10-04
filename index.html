@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>for anggika ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: #594d5c;
+    background: #f7f1f8;
+}
+
+
+/* =========================
+   SCENE SYSTEM
+========================= */
+
+.scene {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform:
+        translateY(18px)
+        scale(.985);
+
+    transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.2,.8,.2,1),
+        visibility .7s ease;
+}
+
+.scene.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================
+   SCENE 1–7
+   NO SCROLL
+========================= */
+
+#scene1,
+#scene2,
+#scene3,
+#scene4,
+#scene5,
+#scene6,
+#scene7 {
+    overflow: hidden;
+}
+
+
+/* =========================
+   SCENE 8
+   SCROLLABLE LETTER
+========================= */
+
+#scene8 {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    align-items: flex-start;
+
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* =========================
+   BASIC
+========================= */
+
+button,
+input {
+    font: inherit;
+}
+
+.content {
+    width: min(720px, 100%);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    opacity: .42;
+    margin-bottom: 13px;
+}
+
+h1 {
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+    font-size: clamp(38px, 9vw, 72px);
+    line-height: 1;
+    color: #625267;
+}
+
+h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+    font-size: clamp(29px, 7vw, 52px);
+    line-height: 1.08;
+    color: #625267;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.small {
+    font-size: 11px;
+    opacity: .5;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.soft-button {
+    border: 0;
+    outline: 0;
+
+    background: #6e5a70;
+    color: #fff;
+
+    padding: 12px 20px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+.soft-button:hover {
+    transform: translateY(-2px);
+    background: #604d62;
+}
+
+.soft-button:active {
+    transform: scale(.96);
+}
+
+
+/* =========================
+   LILY
+========================= */
+
+.lily {
+    position: relative;
+
+    width: 110px;
+    height: 110px;
+
+    margin:
+        0 auto 26px;
+}
+
+.lily span {
+    position: absolute;
+
+    width: 38px;
+    height: 65px;
+
+    left: 50%;
+    top: 50%;
+
+    background: #fffaff;
+
+    border:
+        1px solid rgba(110,90,112,.08);
+
+    border-radius:
+        70% 70% 40% 40%;
+
+    transform-origin:
+        50% 90%;
+
+    box-shadow:
+        0 8px 22px rgba(100,75,105,.05);
+}
+
+.lily span:nth-child(1) {
+    transform:
+        translate(-50%,-88%)
+        rotate(0deg);
+}
+
+.lily span:nth-child(2) {
+    transform:
+        translate(-50%,-88%)
+        rotate(60deg);
+}
+
+.lily span:nth-child(3) {
+    transform:
+        translate(-50%,-88%)
+        rotate(120deg);
+}
+
+.lily span:nth-child(4) {
+    transform:
+        translate(-50%,-88%)
+        rotate(180deg);
+}
+
+.lily span:nth-child(5) {
+    transform:
+        translate(-50%,-88%)
+        rotate(240deg);
+}
+
+.lily span:nth-child(6) {
+    transform:
+        translate(-50%,-88%)
+        rotate(300deg);
+}
+
+.lily i {
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    left: 50%;
+    top: 52%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius: 50%;
+
+    background: #e4b0c8;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(228,176,200,.12);
+}
+
+
+/* =========================
+   SCENE 1
+========================= */
+
+#scene1 {
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #fffaff 0%,
+            #f5edf7 55%,
+            #e9ddea 100%
+        );
+}
+
+.question {
+    margin-bottom: 23px;
+}
+
+.question h1 {
+    font-size:
+        clamp(34px, 9vw, 67px);
+
+    margin-bottom: 13px;
+}
+
+.input-wrap {
+    width: min(330px, 100%);
+    margin: 0 auto;
+}
+
+.fake-input {
+    height: 49px;
+
+    border:
+        1px solid
+        rgba(100,80,105,.17);
+
+    background:
+        rgba(255,255,255,.55);
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+    letter-spacing: .15em;
+
+    color: #655668;
+
+    backdrop-filter: blur(10px);
+
+    margin-bottom: 13px;
+}
+
+.fake-input.empty {
+    color: #9c8fa0;
+    letter-spacing: .04em;
+}
+
+.keyboard {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 6px;
+}
+
+.key {
+    border: 0;
+
+    min-height: 38px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255,255,255,.7);
+
+    color: #68596b;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    transition: .2s ease;
+}
+
+.key:hover {
+    background: #fff;
+    transform: translateY(-1px);
+}
+
+.key.wide {
+    grid-column: span 2;
+}
+
+.checking {
+    margin-top: 14px;
+
+    min-height: 18px;
+
+    font-size: 11px;
+
+    opacity: .55;
+}
+
+
+/* =========================
+   SCENE 2
+========================= */
+
+#scene2 {
+    background:
+        radial-gradient(
+            circle at 50% 38%,
+            #fffaff,
+            #f1e8f3 70%
+        );
+}
+
+#scene2 .lily {
+    animation:
+        gentleFloat 3s
+        ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px);
+    }
+
+}
+
+.scene2-sub {
+    margin-top: 13px;
+    opacity: .55;
+}
+
+
+/* =========================
+   SCENE 3
+========================= */
+
+#scene3 {
+    background: #f6eff7;
+}
+
+.find-lilies {
+    width: min(500px, 100%);
+
+    height: 260px;
+
+    margin:
+        22px auto 8px;
+
+    position: relative;
+}
+
+.mini-find {
+    position: absolute;
+
+    width: 72px;
+    height: 72px;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease;
+}
+
+.mini-find:hover {
+    transform:
+        scale(1.08)
+        rotate(3deg);
+}
+
+.mini-find span {
+    position: absolute;
+
+    width: 25px;
+    height: 42px;
+
+    left: 50%;
+    top: 50%;
+
+    background: #fffaff;
+
+    border-radius:
+        70% 70% 40% 40%;
+
+    transform-origin:
+        50% 90%;
+}
+
+.mini-find span:nth-child(1) {
+    transform:
+        translate(-50%,-85%)
+        rotate(0deg);
+}
+
+.mini-find span:nth-child(2) {
+    transform:
+        translate(-50%,-85%)
+        rotate(60deg);
+}
+
+.mini-find span:nth-child(3) {
+    transform:
+        translate(-50%,-85%)
+        rotate(120deg);
+}
+
+.mini-find span:nth-child(4) {
+    transform:
+        translate(-50%,-85%)
+        rotate(180deg);
+}
+
+.mini-find span:nth-child(5) {
+    transform:
+        translate(-50%,-85%)
+        rotate(240deg);
+}
+
+.mini-find span:nth-child(6) {
+    transform:
+        translate(-50%,-85%)
+        rotate(300deg);
+}
+
+.mini-find i {
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    left: 50%;
+    top: 52%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius: 50%;
+
+    background: #e5b3c9;
+}
+
+.mini-find:nth-child(1) {
+    left: 8%;
+    top: 20%;
+}
+
+.mini-find:nth-child(2) {
+    left: 42%;
+    top: 4%;
+}
+
+.mini-find:nth-child(3) {
+    right: 8%;
+    top: 24%;
+}
+
+.mini-find:nth-child(4) {
+    left: 22%;
+    bottom: 8%;
+}
+
+.mini-find:nth-child(5) {
+    right: 26%;
+    bottom: 4%;
+}
+
+.find-message {
+    height: 20px;
+
+    font-size: 11px;
+
+    opacity: .55;
+}
+
+
+/* =========================
+   SCENE 4
+========================= */
+
+#scene4 {
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #fffaff,
+            #eee3f0
+        );
+}
+
+.water-area {
+    margin-top: 28px;
+}
+
+.water-lily {
+    width: 130px;
+    height: 130px;
+
+    margin:
+        0 auto 24px;
+
+    position: relative;
+}
+
+.water-lily::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.95)
+            0 38%,
+
+            rgba(220,199,226,.5)
+            39% 40%,
+
+            transparent 41%
+        );
+
+    box-shadow:
+        0 15px 40px
+        rgba(95,75,100,.08);
+}
+
+.water-lily .lily {
+    transform: scale(.85);
+    margin: 0;
+}
+
+.water-button {
+    min-width: 155px;
+}
+
+.water-count {
+    margin-top: 13px;
+
+    font-size: 10px;
+
+    opacity: .45;
+}
+
+
+/* =========================
+   SCENE 5
+========================= */
+
+#scene5 {
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            #fffaff,
+            #f0e5f2
+        );
+}
+
+.hidden-area {
+    position: relative;
+
+    width: min(540px, 100%);
+
+    height: 290px;
+
+    margin:
+        22px auto 10px;
+}
+
+.hidden-petal {
+    position: absolute;
+
+    width: 23px;
+    height: 39px;
+
+    border-radius:
+        70% 70% 40% 40%;
+
+    background: #fffaff;
+
+    box-shadow:
+        0 6px 15px
+        rgba(100,80,105,.07);
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.hidden-petal:hover {
+    transform:
+        scale(1.1)
+        rotate(8deg);
+}
+
+.hidden-petal:nth-child(1) {
+    left: 13%;
+    top: 28%;
+
+    transform: rotate(-28deg);
+}
+
+.hidden-petal:nth-child(2) {
+    left: 48%;
+    top: 11%;
+
+    transform: rotate(22deg);
+}
+
+.hidden-petal:nth-child(3) {
+    right: 13%;
+    top: 38%;
+
+    transform: rotate(35deg);
+}
+
+.hidden-petal:nth-child(4) {
+    left: 28%;
+    bottom: 13%;
+
+    transform: rotate(-13deg);
+}
+
+.hidden-petal:nth-child(5) {
+    right: 31%;
+    bottom: 8%;
+
+    transform: rotate(15deg);
+}
+
+.petals-message {
+    height: 20px;
+
+    font-size: 11px;
+
+    opacity: .5;
+}
+
+
+/* =========================
+   SCENE 6
+========================= */
+
+#scene6 {
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #fffaff 0%,
+            #f3ebf5 55%,
+            #e8ddea 100%
+        );
+}
+
+#scene6 .content {
+    max-width: 760px;
+}
+
+.garden-note {
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    opacity: .5;
+}
+
+.garden {
+    position: relative;
+
+    width: min(650px, 100%);
+
+    height: 330px;
+
+    margin:
+        20px auto 12px;
+
+    border-bottom:
+        1px solid
+        rgba(75,60,80,.13);
+}
+
+.garden::before {
+    content: "";
+
+    position: absolute;
+
+    width: 92%;
+    height: 38px;
+
+    left: 4%;
+    bottom: -13px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(175,150,180,.08);
+
+    filter: blur(2px);
+}
+
+.garden-item {
+    position: absolute;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    transition:
+        transform .3s
+        cubic-bezier(.2,.8,.2,1),
+
+        filter .3s ease;
+}
+
+.garden-item:hover {
+    filter: brightness(1.03);
+}
+
+.garden-lily {
+    width: 100px;
+    height: 100px;
+
+    left: 17%;
+    bottom: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.garden-lily .mini-lily {
+    position: relative;
+
+    width: 70px;
+    height: 70px;
+
+    transform: scale(1.15);
+}
+
+.garden-lily .mini-lily span {
+    position: absolute;
+
+    width: 25px;
+    height: 42px;
+
+    left: 50%;
+    top: 50%;
+
+    background: #faf4fc;
+
+    border-radius:
+        70% 70% 40% 40%;
+
+    transform-origin:
+        50% 90%;
+}
+
+.garden-lily .mini-lily
+span:nth-child(1) {
+    transform:
+        translate(-50%,-85%)
+        rotate(0deg);
+}
+
+.garden-lily .mini-lily
+span:nth-child(2) {
+    transform:
+        translate(-50%,-85%)
+        rotate(60deg);
+}
+
+.garden-lily .mini-lily
+span:nth-child(3) {
+    transform:
+        translate(-50%,-85%)
+        rotate(120deg);
+}
+
+.garden-lily .mini-lily
+span:nth-child(4) {
+    transform:
+        translate(-50%,-85%)
+        rotate(180deg);
+}
+
+.garden-lily .mini-lily
+span:nth-child(5) {
+    transform:
+        translate(-50%,-85%)
+        rotate(240deg);
+}
+
+.garden-lily .mini-lily
+span:nth-child(6) {
+    transform:
+        translate(-50%,-85%)
+        rotate(300deg);
+}
+
+.garden-lily .mini-lily i {
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    left: 50%;
+    top: 51%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius: 50%;
+
+    background: #e6b1ca;
+}
+
+.garden .pot {
+    width: 68px;
+    height: 48px;
+
+    left: 50%;
+
+    margin-left: -34px;
+
+    bottom: 10px;
+
+    background: #cdaeb9;
+
+    border-radius:
+        7px 7px 22px 22px;
+
+    cursor: pointer;
+}
+
+.garden .pot::before {
+    content: "";
+
+    position: absolute;
+
+    width: 78px;
+    height: 12px;
+
+    left: -5px;
+    top: -5px;
+
+    border-radius: 10px;
+
+    background: #b995a7;
+}
+
+.garden .butterfly {
+    right: 17%;
+    top: 23%;
+
+    font-size: 31px;
+
+    transform-origin: center;
+}
+
+.garden .butterfly:hover {
+    animation:
+        butterflyFloat .6s ease;
+}
+
+@keyframes butterflyFloat {
+
+    0% {
+        transform:
+            translate(0,0)
+            rotate(0);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(-8deg);
+    }
+
+    100% {
+        transform:
+            translate(0,0)
+            rotate(0);
+    }
+
+}
+
+.garden .strawberry {
+    right: 29%;
+    bottom: 65px;
+
+    font-size: 26px;
+}
+
+.garden .strawberry:hover {
+    transform:
+        rotate(-8deg)
+        scale(1.15);
+}
+
+#gardenDone {
+    margin-top: 5px;
+
+    transition:
+        opacity .3s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+/* =========================
+   SCENE 7
+========================= */
+
+#scene7 {
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #fffaff,
+            #f1e8f3
+        );
+}
+
+.wait-lily {
+    margin-bottom: 28px;
+}
+
+#scene7 .lily {
+    animation:
+        tinyPulse 2.4s
+        ease-in-out infinite;
+}
+
+@keyframes tinyPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.035);
+    }
+
+}
+
+.tell-button {
+    margin-top: 24px;
+}
+
+
+/* =========================
+   SCENE 8
+========================= */
+
+#scene8 {
+    background:
+        radial-gradient(
+            circle at 50% 38%,
+            #fffdfd 0%,
+            #f3eaf5 68%,
+            #e7dbe9 100%
+        );
+}
+
+.final-content {
+    width: min(720px, 100%);
+
+    text-align: left;
+
+    padding-bottom: 40px;
+}
+
+.final-title {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.final-message {
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    color: #625567;
+}
+
+.final-message p {
+    margin-bottom: 19px;
+}
+
+.final-end {
+    text-align: center;
+
+    margin-top: 30px;
+
+    font-size: 11px;
+
+    opacity: .48;
+}
+
+.final-heart {
+    display: inline-block;
+
+    margin-top: 8px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 23px;
+
+    color: #c48fae;
+}
+
+
+/* =========================
+   GRAIN
+========================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .055;
+
+    background-image:
+        radial-gradient(
+            rgba(70,50,75,.7) .5px,
+            transparent .5px
+        );
+
+    background-size: 5px 5px;
+
+    z-index: 99;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .scene {
+        padding: 20px;
+    }
+
+    .keyboard {
+        grid-template-columns:
+            repeat(6, 1fr);
+    }
+
+    .key {
+        min-height: 36px;
+    }
+
+    .find-lilies {
+        height: 235px;
+    }
+
+    .mini-find:nth-child(1) {
+        left: 3%;
+    }
+
+    .mini-find:nth-child(3) {
+        right: 3%;
+    }
+
+    .mini-find:nth-child(4) {
+        left: 14%;
+    }
+
+    .mini-find:nth-child(5) {
+        right: 15%;
+    }
+
+    .garden {
+        height: 290px;
+    }
+
+    .garden-lily {
+        left: 7%;
+    }
+
+    .garden .butterfly {
+        right: 6%;
+    }
+
+    .garden .strawberry {
+        right: 20%;
+    }
+
+    .final-message {
+        font-size: 13px;
+        line-height: 1.85;
+    }
+
+    #scene8 {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    .final-content {
+        padding-bottom: 50px;
+    }
+
+}
+
+
+/* =========================
+   SCENE 8 SCROLLBAR
+========================= */
+
+#scene8::-webkit-scrollbar {
+    width: 5px;
+}
+
+#scene8::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#scene8::-webkit-scrollbar-thumb {
+    background: rgba(100,80,105,.18);
+    border-radius: 999px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     SCENE 1
+================================================== -->
+
+<section
+    class="scene active"
+    id="scene1"
+>
+
+    <div class="content">
+
+        <div class="question">
+
+            <div class="eyebrow">
+                a tiny question
+            </div>
+
+            <h1>
+                WITH WHOM<br>
+                AM I?
+            </h1>
+
+            <p class="small">
+                please enter your name.
+            </p>
+
+        </div>
+
+
+        <div class="input-wrap">
+
+            <div
+                class="fake-input empty"
+                id="nameDisplay"
+            >
+                type something...
+            </div>
+
+
+            <div
+                class="keyboard"
+                id="keyboard"
+            ></div>
+
+
+            <div
+                class="checking"
+                id="checking"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     SCENE 2
+================================================== -->
+
+<section
+    class="scene"
+    id="scene2"
+>
+
+    <div class="content">
+
+        <div class="lily">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <i></i>
+
+        </div>
+
+
+        <h2>
+            oh. it’s you.
+        </h2>
+
+
+        <p class="scene2-sub">
+            finally. i was starting to worry.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     SCENE 3
+================================================== -->
+
+<section
+    class="scene"
+    id="scene3"
+>
+
+    <div class="content">
+
+        <div class="eyebrow">
+            something feels suspicious
+        </div>
+
+
+        <h2>
+            find the right lily.
+        </h2>
+
+
+        <p class="small">
+            one of them is definitely hiding something.
+        </p>
+
+
+        <div class="find-lilies">
+
+
+            <div
+                class="mini-find"
+                data-correct="false"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <i></i>
+
+            </div>
+
+
+            <div
+                class="mini-find"
+                data-correct="false"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <i></i>
+
+            </div>
+
+
+            <div
+                class="mini-find"
+                data-correct="true"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <sp
